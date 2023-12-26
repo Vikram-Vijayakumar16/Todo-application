@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <style>
+
+    table {
+      width: 500px;
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+      height: 40px;
+      font-size: medium;
+    }
+
+    th {
+      background-color: #4f0d55;
+      color: white;
+    }
+
+    
+  </style>
+</head>
+<body>
+  
+  <table>
+    <thead >
+      <tr >
+        <th colspan="4" 
+            style="text-align: center; 
+                   color: rgb(244, 248, 248); 
+                   background-color: blue;">Pending Tasks
+        </th>
+      </tr>
+    </thead>
+<thead>
+  <tr>
+    <th>Update</th> 
+    <th>Task</th>
+    <th>Description</th>
+    <th>Deadline</th>
+  </tr>
+</thead>
+<tbody>
+  <% todos.forEach(todo => { %>
+    <tr>
+      <td><a style="cursor: pointer; color: aqua;" 
+             onclick="loadContent('/todos/update/<%= todo.title %>')">Edit
+          </a>
+      </td>
+      <td><%= todo.title %></td>
+      <td><%= todo.description %></td>
+      <td><%= todo.deadline %></td>
+    </tr>
+  <% }); %>
+</tbody>
+
+  </table>
+</body>
+</html>

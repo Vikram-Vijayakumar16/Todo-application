@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="form.css">
+  <title>Update User</title>
+</head>
+<body>
+  
+  <form id="updateEmail" action="/users/update/email" method="post">
+
+    <input type="hidden" name="_method" value="put" />
+    <h1>Update User-email</h1>
+
+    <label for="email">Email :</label>
+    <input type="text" id="email" name="email" placeholder="Enter new email..." autofocus required>
+
+    <button type="submit" onclick="SubmitForm('updateEmail')">Update User</button>
+  </form>
+  
+</body>
+</html>

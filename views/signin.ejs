@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sign.css">
+    <title>Sign In</title>
+</head>
+<body>
+    <form action="/signin" method="post">
+        <h1>Login</h1>
+        <input type="text" id="name" name="name" placeholder="Enter your name" autofocus required>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+        <button type="submit">Sign In</button>
+        <a href="/signup" class="signup-link">Don't have an account? Sign Up</a>
+
+        <% if (errorMsg) { %>
+            <p style="color: red;"><%= errorMsg %></p>
+        <% } %>
+    </form>
+</body>
+</html>

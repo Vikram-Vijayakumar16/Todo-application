@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="form.css">
+  <title>Update User</title>
+</head>
+<body>
+  
+  <form id="updateName" action="/users/update/name" method="post">
+
+    <input type="hidden" name="_method" value="put" />
+    <h1>Update User-name</h1>
+
+    <label for="name">Name :</label>
+    <input type="text" id="name" name="name" placeholder="Enter new user name..." autofocus required>
+
+    <button type="submit" onclick="SubmitForm('updateName')">Update User</button>
+  </form>
+</body>
+</html>

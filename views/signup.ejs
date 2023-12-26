@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="sign.css">
+  <title>Signup</title>
+</head>
+<body>
+  <form action="/signup" method="post" id="signupForm">
+    <h1>Sign Up</h1>
+    
+    <input type="text" id="name" name="name" placeholder="Enter the name..." required>
+    <input type="text" id="email" name="email" placeholder="Enter the email..." required>
+    <input type="password" id="password_field" name="password" placeholder="Enter the password..." required>
+
+    <div id="strength"></div>
+
+    <button type="submit" id="submitBtn" >Sign Up</button>
+    <a href="/" class="signup-link">Already have an account? Sign In</a>
+  </form>
+
+  <script>
+    let password = document.getElementById('password_field');
+    let strengthBadge = document.getElementById('strength');
+    let submitBtn = document.getElementById('submitBtn');
+    let signupForm = document.getElementById('signupForm');
+    let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{4,})');
+
+    function StrengthChecker(PasswordParameter) {
+      if (strongPassword.test(PasswordParameter)) {
+        strengthBadge.innerHTML = 'strong password &#10004;';
+        strengthBadge.style.color = 'green';
+        submitBtn.disabled = false;
+        submitBtn.style.cursor = 'pointer';
+      } else {
+        strengthBadge.innerHTML = 'weak password &#10006;';
+        strengthBadge.style.color = 'red';
+        submitBtn.disabled = true;
+        submitBtn.style.cursor = 'no-drop';
+      }
+    }
+
+    password.addEventListener('input', () => {
+      if (password.value.length !== 0) {
+        strengthBadge.style.display = 'block';
+        strengthBadge.style.textAlign = 'left';
+        StrengthChecker(password.value);
+      } else {
+        strengthBadge.style.display = 'none';
+        submitBtn.disabled = true;
+      }
+    });
+    
+  </script>
+</body>
+</html>

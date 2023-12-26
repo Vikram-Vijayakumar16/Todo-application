@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Todo</title>
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+  
+  <form id="updateTodoForm" action="/todos/update" method="post">
+
+    <h1>Update Task</h1>
+    <input type="hidden" name="_method" value="put" />
+
+    <label for="title">Task name :</label>
+    
+    <input type="text" id="title" name="title" placeholder="Enter the task name..." value="<%= task ? task.title : null %>" autofocus>
+
+    <label for="status">Status :</label>
+    <input type="text" id="status" name="status" placeholder="Enter true / false" required>
+
+    <button type="submit" onclick="SubmitForm('updateTodoForm')">Update Task</button>
+  </form>
+</body>
+</html>

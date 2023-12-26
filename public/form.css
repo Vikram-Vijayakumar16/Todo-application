@@ -1,0 +1,70 @@
+h1 {
+    color: #fff;
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  form {
+    background-color: rgba(36, 66, 30, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    animation: mymove 3s infinite;
+  }
+
+  @keyframes mymove {
+    0% {
+    background: #ff0000;
+    }
+    14% {
+    background: #80580f;
+    }
+    28% {
+    background: #696911;
+    }
+    42% {
+    background: #008000;
+    }
+    56% {
+    background: #0000ff;
+    }
+    70% {
+    background: #4b0082;
+    }
+    84% {
+    background: #750d75;
+    }
+    100% {
+    background: #ff0000;
+    }
+  }
+
+  label {
+    color: bisque;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: rgba(52, 152, 219, 1);
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    width: 100%;
+  }
+
+  button:hover {
+    background-color: #171c1f;
+    border-color: #2077b4;
+  }
