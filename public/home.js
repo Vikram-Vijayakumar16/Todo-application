@@ -1,19 +1,21 @@
-    async function loadContent(url) {
-        try {
+// Function to load content asynchronously from a given URL
+async function loadContent(url) {
+    try {
         const response = await fetch(url);
         const data = await response.text();
         document.getElementById('content').innerHTML = data;
-        } catch (error) {
+    } catch (error) {
         console.error('Error loading content:', error);
-        }
     }
+}
 
-    function SubmitForm(formId) {
-        // Prevent the default form submission
-        event.preventDefault();
+// Function to submit a form using AJAX
+function SubmitForm(formId) {
+    // Prevent the default form submission
+    event.preventDefault();
 
-        // AJAX request
-        $.ajax({
+    // AJAX request
+    $.ajax({
         url: $(`#${formId}`).attr('action'),
         type: 'POST',
         data: $(`#${formId}`).serialize(), // Serialize the form data
@@ -21,24 +23,27 @@
             // Update the 'content' container with the received message
             $('#content').text(response.msg);
         },
-        });
-    }
+    });
+}
 
-    async function submitForm(formId) {
-        
-        const oldPassword = document.getElementById('OldPassword').value;
-        const newPassword = document.getElementById('NewPassword').value;
-        const reEnteredPassword = document.getElementById('ReEnteredPassword').value;
+// Async function to submit a form with additional password validation
+async function submitForm(formId) {
+    // Get password-related input values
+    const oldPassword = document.getElementById('OldPassword').value;
+    const newPassword = document.getElementById('NewPassword').value;
+    const reEnteredPassword = document.getElementById('ReEnteredPassword').value;
 
-        if (newPassword !== reEnteredPassword) {
+    // Check if new passwords match
+    if (newPassword !== reEnteredPassword) {
         document.getElementById('errorMessage').innerText = 'New passwords do not match';
         return;
-        }
-        // document.getElementById('updatePasswordForm').submit();
-        event.preventDefault();
+    }
 
-        // AJAX request
-        $.ajax({
+    // Prevent the default form submission
+    event.preventDefault();
+
+    // AJAX request
+    $.ajax({
         url: $(`#${formId}`).attr('action'),
         type: 'POST',
         data: $(`#${formId}`).serialize(), // Serialize the form data
@@ -46,17 +51,19 @@
             // Update the 'content' container with the received message
             $('#content').text(response.msg);
         },
-        });
-    }
+    });
+}
 
-    async function setupPasswordStrength() {
-        let password = document.getElementById('NewPassword');
-        let strengthBadge = document.getElementById('strength');
-        let submitBtn = document.getElementById('submitBtn');
-        let signupForm = document.getElementById('updatePasswordForm');
-        let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{4,})');
+// Function to set up password strength checking
+async function setupPasswordStrength() {
+    let password = document.getElementById('NewPassword');
+    let strengthBadge = document.getElementById('strength');
+    let submitBtn = document.getElementById('submitBtn');
+    let signupForm = document.getElementById('updatePasswordForm');
+    let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{4,})');
 
-        function StrengthChecker(PasswordParameter) {
+    // Function to check password strength and update UI
+    function StrengthChecker(PasswordParameter) {
         if (strongPassword.test(PasswordParameter)) {
             strengthBadge.innerHTML = 'Strong Password &#10004;';
             strengthBadge.style.color = 'azure';
@@ -69,9 +76,10 @@
             submitBtn.disabled = true;
             submitBtn.style.cursor = 'no-drop';
         }
-        }
+    }
 
-        password.addEventListener('input', () => {
+    // Event listener for password input
+    password.addEventListener('input', () => {
         if (password.value.length !== 0) {
             strengthBadge.style.display = 'block';
             strengthBadge.style.textAlign = 'left';
@@ -80,5 +88,5 @@
             strengthBadge.style.display = 'none';
             submitBtn.disabled = true;
         }
-        });
-    }
+    });
+}
