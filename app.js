@@ -15,7 +15,10 @@ app.use(session({
   secret: 'tariv-ilhok',
   resave: false,
   saveUninitialized: true,
+  name: 'Vikram',
+  cookie: { maxAge: null, secure: false },
 }));
+
 
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));

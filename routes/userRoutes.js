@@ -9,6 +9,7 @@ router.post('/users/update/name', userController.updateUsername);
 router.post('/users/update/email', userController.updateEmail);
 router.post('/users/update/password', userController.updatePassword);
 router.get('/signout', userController.signout);
+router.get('/profile', userController.profile);
 
 router.get("/", (req, res) => res.render("signin", { errorMsg: null }));
 router.get("/home", (req, res) => res.render("home"));

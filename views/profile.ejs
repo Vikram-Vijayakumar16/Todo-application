@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <style>
+    .card {
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: auto;
+      width: 60%;
+    }
+
+    img {
+      width: 40%;
+      display: block;
+      margin: 20px auto;
+      border-radius: 50%;
+    }
+
+    dl {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      text-align: left;
+      font-size: medium;
+    }
+
+    dt, dd {
+      padding: 12px;
+      /* background-color: #e5dbe683; */
+    }
+    dd{
+        font-size: medium;
+    }
+    dt {
+      font-weight: bold;
+      font-size: large;
+      /* background-color: #4f0d5583; */
+      color: rgb(48, 194, 169);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>User Details</h2>
+    <img src="profile.png" alt="John">
+    <dl>
+      <dt>UserID</dt>
+      <dd><%= account[0].id %></dd>
+
+      <dt>UserName</dt>
+      <dd><%= account[0].name %></dd>
+
+      <dt>Email</dt>
+      <dd><%= account[0].email %></dd>
+    </dl>
+  </div>
+</body>
+</html>

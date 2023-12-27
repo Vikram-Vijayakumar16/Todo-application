@@ -95,6 +95,21 @@ module.exports = {
     }
   },
 
+  profile: (req, res) => {
+    const userid = req.session.userId;
+
+    db.query('SELECT * FROM users WHERE id = ?', [userid], (err, userResult) => {
+      if (err) throw err;
+
+      if (userResult.length === 0) {
+        return res.json({ msg: 'User id does not exist' });
+      }
+
+        res.render('profile', { account: userResult });
+      
+    });
+  },
+
   async updateUsername(req, res) {
     try {
       const { name } = req.body;
